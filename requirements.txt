@@ -1,5 +1,6 @@
 flask
 PyPDF2
+gunicorn
 python-docx
 pytesseract
 pdf2image
