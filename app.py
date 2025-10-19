@@ -17,8 +17,16 @@ load_dotenv()  # load .env file
 app = Flask(__name__)
 
 # Enable CORS for dev and production frontends
-FRONTEND_ORIGINS = os.getenv("FRONTEND_ORIGINS", "*").split(",")
-CORS(app, resources={r"/*": {"origins": FRONTEND_ORIGINS}})
+CORS(app, resources={
+    r"/*": {
+        "origins": [
+            "http://localhost:5173",             # for local dev
+            "https://resume-matcher-psi-eight.vercel.app"  # your Vercel frontend
+        ],
+        "methods": ["GET", "POST", "OPTIONS"],
+        "allow_headers": ["Content-Type", "Authorization"]
+    }
+})
 
 client = genai.Client(api_key=os.environ.get("GOOGLE_API_KEY"))
 
