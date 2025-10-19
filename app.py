@@ -35,6 +35,10 @@ logging.basicConfig(
 UPLOAD_FOLDER = "temp_files"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
+@app.route("/", methods=["GET"])
+def index():
+    return "Resume Matcher API is running. Use POST /evaluate_resume to evaluate resumes."
+
 
 @app.route("/evaluate_resume", methods=["POST"])
 def evaluate_resume():
