@@ -11,8 +11,8 @@ export default function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-const backendUrl = import.meta.env.VITE_BACKEND_URL;
-//const backendUrl = "http://127.0.0.1:5000";
+//const backendUrl = import.meta.env.VITE_BACKEND_URL;
+const backendUrl = "http://127.0.0.1:5000";
 
 const handleEvaluate = async () => {
   setError(null);
@@ -68,7 +68,7 @@ const handleEvaluate = async () => {
           <textarea
             value={jdText}
             onChange={(e) => setJdText(e.target.value)}
-            rows={6}
+            rows={10}
             className="mt-2 w-full rounded-lg border p-2 text-sm"
             placeholder="Paste the job description here..."
           />

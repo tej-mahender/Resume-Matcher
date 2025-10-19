@@ -15,7 +15,10 @@ load_dotenv()  # load .env file
 
 # Flask app
 app = Flask(__name__)
-CORS(app)
+
+FRONTEND_ORIGINS = os.getenv("FRONTEND_ORIGINS", "*").split(",")
+CORS(app, resources={r"/*": {"origins": FRONTEND_ORIGINS}})
+
 
 client = genai.Client(api_key=os.environ.get("GOOGLE_API_KEY"))
 
