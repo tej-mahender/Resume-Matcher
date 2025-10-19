@@ -1,0 +1,10 @@
+flask
+PyPDF2
+python-docx
+pytesseract
+pdf2image
+Pillow
+sentence-transformers
+google-genai
+python-dotenv
+flask-cors
